@@ -8,3 +8,8 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/")
 def root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok", "runtime": "python"}
