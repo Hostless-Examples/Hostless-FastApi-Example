@@ -15,6 +15,7 @@ def root(request: Request):
 
 @app.get("/health")
 def health():
+    # Emit the canonical identifiers consumed by Hostless exact log correlation.
     span_context = trace.get_current_span().get_span_context()
     print(json.dumps({
         "level": "info",
